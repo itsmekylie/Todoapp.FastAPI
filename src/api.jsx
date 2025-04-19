@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || "https://fastapi-todoapp-hu2b.onrender.com/";
+const API_URL = import.meta.env.VITE_API_URL || "https://fastapi-todoapp-hu2b.onrender.com/todos/";
 
 export const getTodos = async (completed) => {
   let url = `${API_URL}/todos`;
