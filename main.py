@@ -2,7 +2,7 @@ from fastapi import FastAPI
 import sys
 import os
 from fastapi.middleware.cors import CORSMiddleware
-from backend.routers import todo
+from routers import todo
 
 # Add project root to Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

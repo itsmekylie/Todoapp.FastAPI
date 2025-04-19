@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from .models import TodoItem
-from .schemas import TodoCreate
+from models import TodoItem
+from schemas import TodoCreate
 
 def get_todos(db: Session):
     return db.query(TodoItem).all()
