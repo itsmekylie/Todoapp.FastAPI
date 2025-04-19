@@ -7,8 +7,8 @@ from routers import todo
 # Add project root to Python path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from backend.routers import todo  # Changed to absolute import
-from backend.database import engine, Base
+from routers import todo  # Changed to absolute import
+from database import engine, Base
 
 # Initialize FastAPI app
 app = FastAPI(debug=True)
