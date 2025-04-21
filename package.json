@@ -1,6 +1,6 @@
 {
   "name": "todo-app",
-  "homepage": "https://github.com/itsmekylie/Todoapp.FastAPI/",
+  "homepage": "https://github.com/itsmekylie/Todoapp.FastAPI",
   "private": true,
   "version": "0.0.0",
   "type": "module",
