@@ -7,25 +7,26 @@ function AddTodo({ onAdd }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (title.trim()) {
-      try {
-        const newTodo = await createTodo(title);
-        onAdd(newTodo);
-        setTitle("");
-      } catch (error) {
-        console.error("Failed to add task", error);
-      }
+      const newTodo = await createTodo(title);
+      onAdd(newTodo);
+      setTitle("");
     }
   };
 
   return (
-    <form className="add-todo" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
+      {/* Optional label for accessibility */}
+      <label htmlFor="todo-title" className="sr-only">Todo</label>
+
       <input
-        type="text"
-        placeholder="Add a new task..."
+        id="todo-title"
+        name="title"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
+        placeholder="Add a new todo"
       />
-      <button type="submit">Add Task</button>
+
+      <button type="submit">Add</button>
     </form>
   );
 }

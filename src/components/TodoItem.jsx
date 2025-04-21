@@ -6,53 +6,34 @@ function TodoItem({ todo, onUpdate, onDelete }) {
   const [title, setTitle] = useState(todo.title);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Toggle completion (checkbox)
   const handleToggleComplete = async () => {
     setIsLoading(true);
     try {
-      const updated = await updateTodo(todo.id, {
-        title: todo.title,
-        completed: !todo.completed,
-      });
-      onUpdate(updated);
-    } catch (err) {
-      console.error("Error updating todo:", err);
+      const data = await updateTodo(todo.id, { completed: !todo.completed });
+      onUpdate(data);
     } finally {
       setIsLoading(false);
     }
   };
 
-  // Save after editing
   const handleSave = async () => {
-    if (!title.trim()) return;
-    setIsLoading(true);
-    try {
-      const updatedTodo = await updateTodo(todo.id, {
-        title: title.trim(),
-        completed: todo.completed,
-      });
-      onUpdate(updatedTodo);
-      setIsEditing(false);
-    } catch (error) {
-      console.error("Failed to save task", error);
-    } finally {
-      setIsLoading(false);
+    if (title.trim()) {
+      setIsLoading(true);
+      try {
+        const data = await updateTodo(todo.id, { title });
+        onUpdate(data);
+        setIsEditing(false);
+      } finally {
+        setIsLoading(false);
+      }
     }
   };
 
-  const handleCancelEdit = () => {
-    setTitle(todo.title);
-    setIsEditing(false);
-  };
-
-  // Delete
   const handleDelete = async () => {
     setIsLoading(true);
     try {
       await deleteTodo(todo.id);
       onDelete(todo.id);
-    } catch (error) {
-      console.error("Failed to delete task", error);
     } finally {
       setIsLoading(false);
     }
@@ -64,37 +45,22 @@ function TodoItem({ todo, onUpdate, onDelete }) {
         type="checkbox"
         checked={todo.completed}
         onChange={handleToggleComplete}
-        disabled={isLoading || isEditing}
+        disabled={isLoading}
       />
-
       {isEditing ? (
-        <>
-          <input
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            disabled={isLoading}
-            autoFocus
-          />
-          <button onClick={handleSave} disabled={isLoading || !title.trim()}>
-            Save
-          </button>
-          <button onClick={handleCancelEdit} disabled={isLoading}>
-            Cancel
-          </button>
-        </>
+        <input
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          onBlur={handleSave}
+          autoFocus
+          disabled={isLoading}
+        />
       ) : (
-        <>
-          <span style={{ textDecoration: todo.completed ? "line-through" : "none" }}>
-            {todo.title}
-          </span>
-          <button onClick={() => setIsEditing(true)} disabled={isLoading}>
-            Edit
-          </button>
-          <button onClick={handleDelete} disabled={isLoading}>
-            Delete
-          </button>
-        </>
+        <span onClick={() => setIsEditing(true)}>{todo.title}</span>
       )}
+      <button onClick={handleDelete} disabled={isLoading}>
+        {isLoading ? "Deleting..." : "Delete"}
+      </button>
     </div>
   );
 }

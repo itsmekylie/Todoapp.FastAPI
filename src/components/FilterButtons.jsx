@@ -1,6 +1,8 @@
+import React from "react";
+
 function FilterButtons({ setFilter }) {
   return (
-    <div className="filter-buttons">
+    <div>
       <button onClick={() => setFilter("all")}>All</button>
       <button onClick={() => setFilter("completed")}>Completed</button>
       <button onClick={() => setFilter("pending")}>Pending</button>
