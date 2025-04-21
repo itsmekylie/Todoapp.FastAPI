@@ -1,109 +1,66 @@
-/* app.css */
-
-/* General Layout */
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-.app {
-  text-align: center; /* Centers text & inline elements */
-}
-.add-todo {
+  font-family: 'Segoe UI', sans-serif;
+  background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-.add-todo input {
-  flex: 1 1 60%;
-  max-width: 300px;
-}
-.add-todo button {
-  flex: 1 1 30%;
-  min-width: 100px;
+  height: 100vh;
+  margin: 0;
+  flex-direction: column;
 }
 
-/* Header */
 h1 {
-  text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 0.3rem;
 }
 
-.add-todo button:hover {
-  background-color: #0f973c;
+.emoji {
+  font-size: 24px;
+  margin-bottom: 1rem;
 }
 
-/* Todo List */
-.todo-item {
+.input-section {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
+  gap: 10px;
+  margin-bottom: 1rem;
 }
 
-.todo-item input[type="checkbox"] {
-  margin-right: 10px;
+input[type="text"] {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 250px;
+  outline: none;
 }
 
-.todo-item span {
-  flex-grow: 1;
-  cursor: pointer;
-}
-
-.todo-item button {
-  padding: 5px 10px;
-  background-color: #e7148f;
+button.add-btn {
+  background-color: #28a745;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  padding: 10px 15px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.todo-item button:hover {
-  background-color: #3a0be4;
+button.add-btn:hover {
+  background-color: #218838;
 }
 
-/* Filter Buttons */
 .filter-buttons {
   display: flex;
-  justify-content: center;
-  gap: 10px; /* Add spacing between buttons */
-  margin-top: 20px;
+  gap: 10px;
 }
 
 .filter-buttons button {
-  margin: 0 5px;
-  padding: 10px 20px;
-  background-color: #0a3fd1;
-  color: white;
+  padding: 8px 12px;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  background-color: #f1f1f1;
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-weight: 500;
+  transition: background-color 0.2s;
 }
 
 .filter-buttons button:hover {
-  background-color: #e73370;
-}
-
-/* Theme Toggle */
-.theme-toggle {
-  display: block;
-  margin: 0 auto 20px;
-  padding: 10px 20px;
-  background-color: #0e1229;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.theme-toggle:hover {
-  background-color: #0034dd;
+  background-color: #ddd;
 }
