@@ -15,8 +15,6 @@ function AddTodo({ onAdd }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      {/* Optional label for accessibility */}
-      <label htmlFor="todo-title" className="sr-only">Todo</label>
 
       <input
         id="todo-title"
