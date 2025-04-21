@@ -1,66 +1,130 @@
+/* app.css */
+
+/* General Layout */
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   margin: 0;
-  flex-direction: column;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
 }
 
+.app {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Dark Mode */
+body.light {
+  --background-color: #ffffff;
+  --text-color: #000000;
+}
+
+body.dark {
+  --background-color: #121212;
+  --text-color: #ffffff;
+}
+
+/* Header */
 h1 {
-  margin-bottom: 0.3rem;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.emoji {
-  font-size: 24px;
-  margin-bottom: 1rem;
-}
-
-.input-section {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 1rem;
-}
-
-input[type="text"] {
-  padding: 10px 15px;
+/* Input Field */
+.add-todo input {
+  width: calc(100% - 100px);
+  padding: 10px;
+  margin-right: 10px;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  width: 250px;
-  outline: none;
+  border-radius: 5px;
 }
 
-button.add-btn {
-  background-color: #28a745;
+.add-todo button {
+  padding: 10px 20px;
+  background-color: #0fbe35;
   color: white;
   border: none;
-  border-radius: 8px;
-  padding: 10px 15px;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-button.add-btn:hover {
-  background-color: #218838;
+.add-todo button:hover {
+  background-color: #0f973c;
 }
 
+/* Todo List */
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.todo-item input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.todo-item span {
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.todo-item button {
+  padding: 5px 10px;
+  background-color: #e7148f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.todo-item button:hover {
+  background-color: #3a0be4;
+}
+
+/* Filter Buttons */
 .filter-buttons {
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  gap: 10px; /* Add spacing between buttons */
+  margin-top: 20px;
 }
 
 .filter-buttons button {
-  padding: 8px 12px;
+  margin: 0 5px;
+  padding: 10px 20px;
+  background-color: #0a3fd1;
+  color: white;
   border: none;
-  border-radius: 8px;
-  background-color: #f1f1f1;
+  border-radius: 5px;
   cursor: pointer;
-  font-weight: 500;
-  transition: background-color 0.2s;
+  transition: background-color 0.3s;
 }
 
 .filter-buttons button:hover {
-  background-color: #ddd;
+  background-color: #e73370;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  display: block;
+  margin: 0 auto 20px;
+  padding: 10px 20px;
+  background-color: #0e1229;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.theme-toggle:hover {
+  background-color: #0034dd;
 }
