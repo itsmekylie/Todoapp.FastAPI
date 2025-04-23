@@ -1,21 +1,23 @@
 {
-  "name": "fastapi_todoapp",
+  "name": "mytodo-",
   "version": "1.0.0",
-  "main": "main.jsx",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/itsmekylie/FastAPI_todoapp.git"
+  "dependencies": {
+    "@expo/vector-icons": "^14.1.0",
+    "@react-native-async-storage/async-storage": "^1.23.1",
+    "expo": "~52.0.46",
+    "expo-status-bar": "~2.0.1",
+    "react": "^18.2.0",
+    "react-native": "^0.73.6"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/itsmekylie/FastAPI_todoapp/issues"
+  "devDependencies": {
+    "@babel/core": "^7.20.0"
   },
-  "homepage": "https://github.com/itsmekylie/FastAPI_todoapp#readme",
-  "description": ""
+  "private": true
 }
